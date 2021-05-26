@@ -9,7 +9,7 @@
   });
 </script>
 
-<div class="user-list">
+<div class="message-list">
   <h1>Messages:</h1>
   {#each currentMessages as message}
     <MessageComponent {message} />
@@ -17,7 +17,4 @@
 </div>
 
 <style>
-  .user-list {
-    width: 40%;
-  }
 </style>

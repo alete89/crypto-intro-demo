@@ -25,11 +25,5 @@
 </div>
 
 <style>
-  .card {
-    border-style: solid;
-    border-width: 3px;
-    border-color: gray;
-    border-radius: 10%;
-    margin-bottom: 15px;
-  }
+  
 </style>

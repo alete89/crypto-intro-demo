@@ -22,13 +22,34 @@
   bootstrap();
 </script>
 
-<main>
-  <h1>Users:</h1>
-  <UserListComponent />
-  <MessageListComponent />
-  <NewMessage />
-  <NewUser />
-</main>
+<div class="horizontal">
+  <div class="col">
+    <!-- <NewUser /> -->
+    <UserListComponent />
+  </div>
+  <div class="col">
+    <MessageListComponent />
+    <NewMessage />
+  </div>
+</div>
 
 <style>
+  .horizontal {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  .col {
+    flex: 50%;
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+  :global(.card) {
+    padding: 15px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: gray;
+    border-radius: 20px;
+    margin-bottom: 15px;
+  }
 </style>

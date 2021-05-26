@@ -11,13 +11,11 @@
 </script>
 
 <div class="user-list">
+  <h1>Users:</h1>
   {#each currentUsers as user}
     <UserComponent {user} />
   {/each}
 </div>
 
 <style>
-  .user-list {
-    width: 40%;
-  }
 </style>
