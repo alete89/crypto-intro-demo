@@ -15,7 +15,7 @@
   };
 </script>
 
-<div class="card" id="asd">
+<div class="card">
   <h1>{user.name}</h1>
   <p>{user.email}</p>
   <p>Has keys: {!!user.key}</p>

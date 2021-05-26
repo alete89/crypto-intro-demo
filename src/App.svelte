@@ -5,6 +5,7 @@
   import { generarClaves } from "./service/crypto";
   import type { User } from "./model/user";
   import { users } from "./store/users";
+  import NewUser from "./components/new-user.svelte";
 
   let currentUsers: User[];
 
@@ -21,12 +22,12 @@
   bootstrap();
 </script>
 
-<!-- ACA TIENE QUE HABER UN CONTEXT O APP TIENE QUE MANTENER EL ESTADO -->
 <main>
   <h1>Users:</h1>
   <UserListComponent />
   <MessageListComponent />
   <NewMessage />
+  <NewUser />
 </main>
 
 <style>
