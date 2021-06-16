@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { User } from "../model/user";
-  import { desencriptarMensaje } from "../service/crypto";
+  import { decryptMessage } from "../service/crypto";
   import { users } from "../store/users";
 
   export let message: string;
@@ -18,7 +18,7 @@
 
   const handleDecryptButton = async () => {
     try {
-      const { decrypted, valid } = await desencriptarMensaje(fromUser, toUser, message);
+      const { decrypted, valid } = await decryptMessage(fromUser, toUser, message);
       cleartext = decrypted;
       validSignature = valid;
     } catch (error) {

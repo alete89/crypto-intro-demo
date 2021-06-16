@@ -1,12 +1,12 @@
 <script lang="ts">
   import type { User } from "../model/user";
-  import { generarClaves } from "../service/crypto";
+  import { generateKeys } from "../service/crypto";
   import { users } from "../store/users";
 
   export let user: User;
 
   const handleClickGenerarClaves = async () => {
-    user["key"] = await generarClaves(user);
+    user["key"] = await generateKeys(user);
     users.update((current) => {
       current = current.filter((u) => u.name !== user.name);
       current.push(user);
@@ -25,5 +25,4 @@
 </div>
 
 <style>
-  
 </style>

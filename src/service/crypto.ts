@@ -1,7 +1,7 @@
 import * as openpgp from "openpgp";
 import type { User } from "../model/user";
 
-export async function generarClaves(user: User) {
+export async function generateKeys(user: User) {
   const { privateKeyArmored, publicKeyArmored, revocationCertificate } = await openpgp.generateKey({
     type: "rsa",
     rsaBits: 4096,
@@ -11,7 +11,7 @@ export async function generarClaves(user: User) {
   return { privateKeyArmored, publicKeyArmored, revocationCertificate };
 }
 
-export async function encriptarMensaje(from: User, to: User, clearText: string) {
+export async function encryptMessage(from: User, to: User, clearText: string) {
   const publicKey = await openpgp.readKey({ armoredKey: to.key.publicKeyArmored });
   const privateKey = await openpgp.decryptKey({
     privateKey: await openpgp.readKey({ armoredKey: from.key.privateKeyArmored }),
@@ -25,7 +25,7 @@ export async function encriptarMensaje(from: User, to: User, clearText: string) 
   });
 }
 
-export async function desencriptarMensaje(from: User, to: User, encrypted: string) {
+export async function decryptMessage(from: User, to: User, encrypted: string) {
   let privateKey;
   let publicKey;
   try {

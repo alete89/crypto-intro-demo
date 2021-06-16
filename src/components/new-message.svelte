@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { User } from "../model/user";
-  import { encriptarMensaje } from "../service/crypto";
+  import { encryptMessage } from "../service/crypto";
   import { users, encryptedMessages } from "../store/users";
   let currentUsers: User[];
 
@@ -13,7 +13,7 @@
   let cleartext: string = "Write your message here";
 
   const handleEncryptButton = async () => {
-    const encrypted = await encriptarMensaje(fromUser, toUser, cleartext);
+    const encrypted = await encryptMessage(fromUser, toUser, cleartext);
     console.log(encrypted);
     encryptedMessages.update((current) => {
       current.push(encrypted);

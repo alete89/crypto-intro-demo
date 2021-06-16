@@ -4,7 +4,7 @@
   import NewUser from "./components/new-user.svelte";
   import UserListComponent from "./components/user-list.svelte";
   import type { User } from "./model/user";
-  import { generarClaves } from "./service/crypto";
+  import { generateKeys } from "./service/crypto";
   import { users } from "./store/users";
 
   let currentUsers: User[];
@@ -15,7 +15,7 @@
 
   const bootstrap = async () => {
     let alete = { name: "alete", email: "alete89@hotmail.com", password: "mipassword" };
-    alete["key"] = await generarClaves(alete);
+    alete["key"] = await generateKeys(alete);
     const pedrito = { name: "pedrito", email: "pedrito@mail.com", password: "pedritocapo" };
     users.update(() => [alete, pedrito]);
   };
