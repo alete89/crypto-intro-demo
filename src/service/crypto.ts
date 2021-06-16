@@ -52,5 +52,5 @@ export async function decryptMessage(from: User, to: User, encrypted: string) {
     publicKeys: publicKey, // for verification (optional)
     privateKeys: privateKey,
   });
-  return { decrypted, valid: signatures[0].valid };
+  return { decrypted, valid: await signatures[0].verified };
 }
